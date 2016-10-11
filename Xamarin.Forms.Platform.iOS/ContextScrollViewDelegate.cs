@@ -157,7 +157,8 @@ namespace Xamarin.Forms.Platform.iOS
 							IsOpen = false;
 							scrollView.SetContentOffset(new PointF(0, 0), true);
 
-							ClearCloserRecognizer(scrollView);
+							if (_globalCloser.State != UIGestureRecognizerState.Cancelled)
+								ClearCloserRecognizer(scrollView);
 						};
 
 						var table = view as UITableView;
